@@ -15,7 +15,7 @@ const firebaseConfig = {
 
 module.exports = {
   siteMetadata: {
-    title: 'Pints / Kilometer',
+    title: 'PPK',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

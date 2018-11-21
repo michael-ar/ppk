@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { graphql } from 'gatsby';
+import { Helmet } from 'react-helmet';
 import { setConfig } from 'react-hot-loader';
 
 import './index.css';
@@ -14,6 +15,10 @@ const IndexPage = props => {
   const [activeLi, setActiveLi] = useState(null);
   return (
     <Context.Provider value={setActiveLi}>
+      <Helmet>
+        <title>PPK</title>
+        <meta name={'description'} content={'PPK running club'} />
+      </Helmet>
       <Menu />
       <Logo />
       {activeLi}
