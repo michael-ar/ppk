@@ -1,0 +1,16 @@
+ul {
+  position: absolute;
+  padding: 0 96px;
+  margin: 0;
+  bottom: 0;
+  right: 0;
+  width: 40vw;
+  height: 100vh;
+  overflow: hidden;
+  list-style: none;
+  text-align: center;
+  font-size: 36px;
+}
+li {
+  cursor: pointer;
+}
