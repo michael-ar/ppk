@@ -6,11 +6,13 @@ export default props => {
   return (
     <React.Fragment>
       <Logo />
-      {Object.entries(props.pageContext).map(([k, v]) => (
-        <div key={k}>
-          {k}: {v}
-        </div>
-      ))}
+      {Object.entries(props.pageContext)
+        .filter(x => x[0] !== 'id')
+        .map(([k, v]) => (
+          <div key={k}>
+            {k}: {v}
+          </div>
+        ))}
     </React.Fragment>
   );
 };

@@ -1,18 +1,23 @@
 {
-    "version": 2,
-    "name": "ppk",
-    "alias": ["pints.run"],
-    "regions": ["bru1"],
-    "builds": [
-        {
-          "src": "next.config.js",
-          "use": "@now/next",
-          "config": { "maxLambdaSize": "25mb" }
-        }
-    ],
-    "env": {
-        "FIREBASE_PRIVATE_KEY": "@firebase-private-key",
-        "FIREBASE_PRIVATE_KEY_ID": "@firebase-private-key-id",
-        "FIREBASE_CLIENT_ID": "@firebase-client-id"
+  "version": 2,
+  "name": "ppk",
+  "alias": ["pints.run"],
+  "regions": ["bru1"],
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": {
+        "maxLambdaSize": "25mb",
+        "distDir": "public"
+      }
     }
+  ],
+  "build": {
+    "env": {
+      "FIREBASE_PRIVATE_KEY": "@firebase-private-key",
+      "FIREBASE_PRIVATE_KEY_ID": "@firebase-private-key-id",
+      "FIREBASE_CLIENT_ID": "@firebase-client-id"
+    }
+  }
 }
