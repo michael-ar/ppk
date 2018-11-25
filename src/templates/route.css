@@ -1,0 +1,25 @@
+.information {
+  position: absolute;
+  margin: 0;
+  top: calc(30vh + 6px);
+  left: 55vw;
+  font-size: 21px;
+  line-height: 150%;
+}
+
+.information .key {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #8CF6CE;
+}
+
+@media (max-width: 480px) {
+  .information {
+    position: relative;
+    left: 0;
+    top: 0;
+    /* relies on map being almost square, find nicer way to account for absolute img in layout */
+    margin-top: calc(100vw + 24px); 
+    padding: 24px;
+  }
+}

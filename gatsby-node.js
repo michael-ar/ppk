@@ -20,13 +20,13 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `).then(result => {
-      // can probably tally all the data for distance pints etc.
-      result.data.allRoutes.edges.forEach(({ node }) => {
+      result.data.allRoutes.edges.forEach(({ node }, i) => {
         createPage({
           path: `pub/${formatURL(node.pub)}`,
           component: path.resolve(`./src/templates/route.js`),
           context: {
             ...node,
+            map: (i % 3) + 1,
             slug: `pub/${formatURL(node.pub)}`,
           },
         });
