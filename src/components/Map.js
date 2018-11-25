@@ -6,16 +6,21 @@ import route1 from '../images/1.png';
 import route2 from '../images/2.png';
 import route3 from '../images/3.png';
 
-const images = {
-  route1,
-  route2,
-  route3,
-};
-
 const Map = props => (
   <div className={'map'}>
     <img className={'base'} src={map} />
-    <img src={images[`route${props.data.map}`]} />
+    <img
+      src={route1}
+      style={{ display: props.data.map === 1 ? 'block' : 'none' }}
+    />
+    <img
+      src={route2}
+      style={{ display: props.data.map === 2 ? 'block' : 'none' }}
+    />
+    <img
+      src={route3}
+      style={{ display: props.data.map === 3 ? 'block' : 'none' }}
+    />
   </div>
 );
 
