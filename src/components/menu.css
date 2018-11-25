@@ -9,8 +9,19 @@ ul {
   overflow: hidden;
   list-style: none;
   text-align: center;
-  font-size: 36px;
+  font-size: 28px;
 }
+
 li {
   cursor: pointer;
+  text-transform: uppercase;
+}
+
+@media (max-width: 480px) {
+  ul {
+    position: relative;
+    padding: 0 24px;
+    margin: 36px 0;
+    width: calc(100% - 48px);
+  }
 }

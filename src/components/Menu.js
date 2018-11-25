@@ -5,7 +5,7 @@ import './menu.css';
 import utils from '../utils';
 import { Context } from '../pages/';
 
-const LI_HEIGHT = 41;
+const LI_HEIGHT = 32;
 const LI_MARGIN = 12;
 let polyWindow;
 if (typeof window !== 'undefined') {
@@ -57,24 +57,25 @@ const useWindowSize = () => {
 
 const Menu = props => {
   const { pubs } = props;
-  const setActiveLi = useContext(Context);
+  const setActiveRoute = useContext(Context);
   const mouse = useMousePosition();
   const window = useWindowSize();
   const contentHeight = pubs.length * (LI_HEIGHT + LI_MARGIN);
   const range = contentHeight - window.height;
   const margin = (mouse.y / window.height) * range;
-  const onMouseLeave = () => setActiveLi(null);
+  const onMouseLeave = () => setActiveRoute();
+  const isMobile = window.width <= '480';
   return (
-    <ul style={{ paddingBottom: margin }}>
-      {pubs.map((x, i) => (
+    <ul style={isMobile ? {} : { paddingBottom: margin }}>
+      {pubs.map(({ pub }, i) => (
         <li
-          key={`${x}${i}`}
-          onMouseEnter={() => setActiveLi(x)}
+          key={`${pub}${i}`}
+          onMouseEnter={() => setActiveRoute({ pub, map: (i % 3) + 1 })}
           onMouseLeave={onMouseLeave}
-          onClick={() => navigate(`/pub/${utils.formatURL(x)}`)}
+          onClick={() => navigate(`/pub/${utils.formatURL(pub)}`)}
           style={{ marginBottom: LI_MARGIN }}
         >
-          {x}
+          {pub}
         </li>
       ))}
     </ul>
@@ -97,7 +98,14 @@ const WithQuery = () => (
         }
       }
     `}
-    render={data => <Menu pubs={data.allRoutes.edges.map(x => x.node.pub)} />}
+    render={data => (
+      <Menu
+        pubs={data.allRoutes.edges.map(({ node: { pub, map } }) => ({
+          pub,
+          map,
+        }))}
+      />
+    )}
   />
 );
 

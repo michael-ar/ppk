@@ -1,9 +1,11 @@
 import React from 'react';
+import Logo from '../components/Logo';
+import Map from '../components/Map';
 
 const NotFoundPage = () => (
   <React.Fragment>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <Logo textOverride={'Page not found'} />
+    <Map data={{}} />
   </React.Fragment>
 );
 

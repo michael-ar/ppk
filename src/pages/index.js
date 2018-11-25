@@ -6,22 +6,23 @@ import { setConfig } from 'react-hot-loader';
 import './index.css';
 import Logo from '../components/Logo';
 import Menu from '../components/Menu';
+import Map from '../components/Map';
 
 setConfig({ pureSFC: true });
 
 export const Context = React.createContext();
 
-const IndexPage = props => {
-  const [activeLi, setActiveLi] = useState(null);
+const IndexPage = () => {
+  const [activeRoute = {}, setActiveRoute] = useState();
   return (
-    <Context.Provider value={setActiveLi}>
+    <Context.Provider value={setActiveRoute}>
       <Helmet>
         <title>PPK</title>
         <meta name={'description'} content={'PPK running club'} />
       </Helmet>
-      <Menu />
       <Logo />
-      {activeLi}
+      <Menu />
+      <Map data={activeRoute} />
     </Context.Provider>
   );
 };
