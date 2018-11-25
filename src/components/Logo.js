@@ -13,17 +13,16 @@ const Stats = props => (
   </React.Fragment>
 );
 
-const Logo = props =>
-  console.log('props', props) || (
-    <div className={'container'}>
-      <Link to={'/'}>
-        <h1>PPK</h1>
-      </Link>
-      <div className={'stats'}>
-        <span>{props.textOverride || <Stats {...props} />}</span>
-      </div>
+const Logo = props => (
+  <div className={'container'}>
+    <Link to={'/'}>
+      <h1>PPK</h1>
+    </Link>
+    <div className={'stats'}>
+      <span>{props.textOverride || <Stats {...props} />}</span>
     </div>
-  );
+  </div>
+);
 
 const WithQuery = props => (
   <StaticQuery
