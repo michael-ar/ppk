@@ -1,4 +1,5 @@
-# PPK front-end
+PPK: Front-end for running club website
+========================================
 
 [pints.run](https://pints.run)
 
