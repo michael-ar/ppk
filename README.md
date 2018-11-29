@@ -6,6 +6,7 @@ PPK: Front-end for running club website
 ### TODO
 - [ ] add tests (cypress)
 - [ ] full styling, incl. mobile layout
+- [ ] better hooks use: `useLayoutEffect` and `useMemo` for the window tracking and menu positioning
 - [ ] optimize rendering by using [gatsby's layout approach](https://www.gatsbyjs.org/docs/layout-components/)
 - [ ] optimize images by using [gql approach approach](https://www.gatsbyjs.org/docs/working-with-images/#optimizing-images-with-gatsby-image)
 - [ ] login / signup for users, track personalised stats
