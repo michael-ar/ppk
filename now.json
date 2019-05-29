@@ -2,7 +2,7 @@
   "version": 2,
   "name": "ppk",
   "alias": ["pints.run"],
-  "regions": ["bru1"],
+  "regions": ["lhr1"],
   "builds": [
     {
       "src": "package.json",
